@@ -1,35 +1,51 @@
 let heading = document.getElementById("heading");
-let input = document.getElementById("userInput");
+let input = document.getElementById("inputText");
 let para = document.getElementById("para");
 
-document.getElementById("changetextbtn").onclick = function() {
-    heading.innerHTML = input.value;
+
+let changeTextBtn = document.getElementById("changeTextBtn");
+let colorBtn = document.getElementById("colorBtn");
+let fontBtn = document.getElementById("fontBtn");
+let toggleBtn = document.getElementById("toggleBtn");
+let resetBtn = document.getElementById("resetBtn");
+
+
+changeTextBtn.onclick = function() {
+    heading.innerText = input.value;
 };
-input.onchange = function() {
-    console.log("Input changed to: " + input.value);
-}; 
-document.getElementById("bgcolorbtn").addEventListener("click", function() {
+
+
+colorBtn.addEventListener("click", function() {
     document.body.style.backgroundColor = "lightblue";
 });
-document.getElementById("fontsizebtn").addEventListener("click", function() {
+
+
+fontBtn.onmouseover = function() {
     heading.style.fontSize = "40px";
-});
+};
 
-let isvsible = true;
-document.getElementById("togglebtn").addEventListener("click", function() {
-    if (isvsible) {
+
+let isVisible = true;
+toggleBtn.addEventListener("click", function() {
+    if (isVisible) {
         para.style.display = "none";
-        isvsible = false;
-
+        isVisible = false;
     } else {
         para.style.display = "block";
-        isvsible = true;
+        isVisible = true;
     }
 });
-document.getElementById("resetbtn").addEventListener("click", function() {
-    location.reload();
-});
 
-heading.onmouseover = function() {
-    heading.style.color = "red";
+
+input.onchange = function() {
+    console.log("Input changed to: " + input.value);
 };
+
+
+resetBtn.addEventListener("click", function() {
+    heading.innerText = "Welcome to JavaScript DOM";
+    document.body.style.backgroundColor = "white";
+    heading.style.fontSize = "24px";
+    para.style.display = "block";
+    input.value = "";
+});
