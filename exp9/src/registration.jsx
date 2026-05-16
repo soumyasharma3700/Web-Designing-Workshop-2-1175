@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
-function App() {
+function Registration() {
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -11,12 +12,16 @@ function App() {
   const [users, setUsers] = useState([]);
 
   const handleSubmit = (e) => {
+
     e.preventDefault();
 
     if (name === "" || email === "" || password === "") {
+
       setError("All fields are required");
       setSuccess("");
+
     } else {
+
       setError("");
       setSuccess("Registration Successful");
 
@@ -107,4 +112,4 @@ function App() {
   );
 }
 
-export default App;
+export default Registration;
