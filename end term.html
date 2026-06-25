@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Interest Calculator </title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 400px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input{
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        </style>
+</head>
+<body>
+    <div class = "container">
+        <h1>Simple Interest Calculator</h1>
+        <form id="interestForm">
+            <label for="principal">Principal Amount:</label>
+            <input type="number" id="principal" required>
+
+            <label for="rate">Annual Interest Rate (%):</label>
+            <input type="number" id="rate" required>
+
+            <label for="time">Time (years):</label>
+            <input type="number" id="time" required>
+
+            <button type="submit">Calculate Simple Interest</button>
+        </form>
+
+        <div class="result" id="result"></div>
+        <script>
+            document.getElementById('interestForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                
+                const principal = parseFloat(document.getElementById('principal').value);
+                const rate = parseFloat(document.getElementById('rate').value);
+                const time = parseFloat(document.getElementById('time').value);
+
+        
+                const simpleInterest = (principal * rate * time) / 100;
+
+                
+                document.getElementById('result').textContent = `Simple Interest: $${simpleInterest.toFixed(2)}`;
+            });
+        </script>
+    </div>
+</body>
+</html>
